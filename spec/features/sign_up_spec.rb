@@ -1,18 +1,16 @@
 RSpec.feature 'Signup', type: :feature do
   context 'Successful signup' do
     scenario 'User provides valid details for all fields' do
-      fill_in_sign_up_details
-      click_button 'Sign Up'
+      sign_up 
       expect(page.current_path).to eq("/users/davethecat@katze.com")
     end
   end
 
   context 'Unsuccessful signup' do
     scenario 'User attempts signup with non unique email' do
-      fill_in_sign_up_details
-      click_button 'Sign Up'
-      fill_in_sign_up_details
-      click_button 'Sign Up'
+      sign_up
+      click_link 'Sign Out'
+      sign_up
       expect(page.current_path).to eq('/users')
       expect(page).to have_content('has already been taken')
     end
