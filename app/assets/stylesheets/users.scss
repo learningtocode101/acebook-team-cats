@@ -1,3 +1,88 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+  color: #365899;
+  text-decoration: none;
+}
+
+.notice {
+  color: red;
+  margin: 0 auto;
+  width: 50%;
+  // border: 1px solid red;
+}
+
+.new_post_btn {
+  position: absolute;
+  top: 50px;
+  left: 450px;
+  position: absolute;
+  border: .5px solid rgb(255, 255, 255);
+  padding: .5em;
+  border-radius: 5px;
+  background-color:lightgreen;
+  text-transform: uppercase;
+  box-shadow: green 3px 3px;
+}
+.sign_out_btn {
+  position: absolute;
+  top: 5px;
+  right: 450px;
+  border: .5px solid rgb(255, 255, 255);
+  padding: .5em;
+  border-radius: 5px;
+  background-color:white;
+  text-transform: uppercase;
+  box-shadow: #365899 3px 3px;
+}
+.sign_out_btn:hover {
+  background-color:rgb(230, 255, 247);
+}
+
+.post_div {
+  // border: 1px solid red;
+  height: 100px;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.notice{
+  margin: 20px 0 20px 0;
+  height: 50px;
+}
+
+#posted_at{
+  // border: 1px solid pink;
+  font-size: .7em;
+  padding-left: 5px;
+}
+
+.comment_div{
+  margin: 0 auto;
+  width: 50%;
+  background-color: #f5f4f4; 
+  // height: 100%;
+  font-size: 14px;
+  border-radius: 50px;
+  padding: 1em;
+  margin-top: .4em;
+  // border: 1px solid black;
+}
+.comment_div > p{
+  border-bottom: 1px solid white;
+  padding: 1px;
+}
+
+.create_comment {
+  // border: 1px solid palegreen;
+  margin: 0 auto;
+  width: 50%; 
+}
+
+.create_comment > input#message{
+  border-radius: 10px;
+  height: 30px;
+  width: 500px;
+}
