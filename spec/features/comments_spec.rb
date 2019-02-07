@@ -52,11 +52,8 @@ RSpec.feature 'Comments', type: :feature do
 
       scenario "User cannot update another user's comments" do
         sign_up
-        click_link 'New post'
-        fill_in 'Message', with: 'Hello, world!'
-        click_button 'Submit'
-        fill_in 'message', with: 'Comment, world!'
-        click_button 'Submit'
+        submit_post
+        submit_comment
         click_link 'Sign Out'
         second_user_sign_up
         visit '/users/davethecat@katze.com'
@@ -70,11 +67,8 @@ RSpec.feature 'Comments', type: :feature do
     context 'Successful' do
       scenario 'User can delete their comments' do
         sign_up
-        click_link 'New post'
-        fill_in 'Message', with: 'Hello, world!'
-        click_button 'Submit'
-        fill_in 'message', with: 'Comment, world!'
-        click_button 'Submit'
+        submit_post
+        submit_comment
         click_link 'Comment, world!'
         click_link 'Delete'
         expect(page).not_to have_content('Comment, world!')
@@ -84,11 +78,8 @@ RSpec.feature 'Comments', type: :feature do
     context 'Unsuccessful' do
       scenario "User cannot delete another user's comments" do
         sign_up
-        click_link 'New post'
-        fill_in 'Message', with: 'Hello, world!'
-        click_button 'Submit'
-        fill_in 'message', with: 'Comment, world!'
-        click_button 'Submit'
+        submit_post
+        submit_comment
         click_link 'Sign Out'
         second_user_sign_up
         visit '/users/davethecat@katze.com'
