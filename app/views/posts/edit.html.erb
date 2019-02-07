@@ -1,11 +1,18 @@
+<div class="container">
 <div>
   <%= notice %>
 </div>
 
+<img src="https://catbook-ada.herokuapp.com/assets/catbookheader-642d40e427d108d6ff920f899e0a624a1f1be155792f7b1d014852e8a82c1902.jpg" alt="Catbook Logo" class="logo">
+
+<div class="form">
 <%= form_for @post do |form| %>
   <%= form.label :message %></br>
-  <%= form.text_area :message %></br>
-  <%= form.submit "Edit" %></br>
+  <%= form.text_area :message, id: "message" %></br>
+  <%= form.submit "Edit", id: "edit" %></br>
 <% end %>
+<br>
+<br>
+<%= link_to "Delete", post_path(@post), id: "delete", method: :delete, data: { confirm: "Are you sure?" } %>
+</div> 
 
-<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
