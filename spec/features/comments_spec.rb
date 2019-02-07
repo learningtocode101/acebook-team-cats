@@ -3,27 +3,19 @@ RSpec.feature 'Comments', type: :feature do
     context 'Successful' do
       scenario 'User can submit a comment on their wall' do
         sign_up
-        click_link 'New post'
-        fill_in 'Message', with: 'Hello, world!'
-        click_button 'Submit'
-        fill_in 'message', with: 'Comment, world!'
-        click_button 'Submit'
+        submit_post
+        submit_comment
         expect(page).to have_content('Comment, world!')
       end
 
       scenario "User can comment on someone else's wall and stays there" do
         sign_up
-        click_link 'New post'
-        fill_in 'Message', with: 'Hello, world!'
-        click_button 'Submit'
-        fill_in 'message', with: 'Comment, world!'
-        click_button 'Submit'
+        submit_post
         click_link 'Sign Out'
         second_user_sign_up
         visit '/users/davethecat@katze.com'
-        fill_in 'message', with: 'Hi Dave!'
-        click_button 'Submit'
-        expect(page).to have_content('Hi Dave!')
+        submit_comment
+        expect(page).to have_content('Comment, world!')
         expect(page.current_path).to eq('/users/davethecat@katze.com')
       end
     end
@@ -31,11 +23,8 @@ RSpec.feature 'Comments', type: :feature do
     context 'Unsuccessful' do
       scenario 'User cannot submit empty comment' do
         sign_up
-        click_link 'New post'
-        fill_in 'Message', with: 'Hello, world!'
-        click_button 'Submit'
-        fill_in 'message', with: ''
-        click_button 'Submit'
+        submit_post
+        submit_empty_comment
         expect(page).to have_content("Your new post couldn't be created!")
       end
     end
@@ -45,14 +34,9 @@ RSpec.feature 'Comments', type: :feature do
     context 'Successful' do
       scenario 'User can update their comments' do
         sign_up
-        click_link 'New post'
-        fill_in 'Message', with: 'Hello, world!'
-        click_button 'Submit'
-        fill_in 'message', with: 'Comment, world!'
-        click_button 'Submit'
-        click_link 'Comment, world!'
-        fill_in 'Message', with: 'Another comment, world!'
-        click_button 'Edit'
+        submit_post
+        submit_comment
+        edit_comment
         expect(page).to have_content('Another comment, world!')
       end
     end
@@ -60,14 +44,9 @@ RSpec.feature 'Comments', type: :feature do
     context 'Unsuccessful' do
       scenario 'User cannot make comment blank after edit' do
         sign_up
-        click_link 'New post'
-        fill_in 'Message', with: 'Hello, world!'
-        click_button 'Submit'
-        fill_in 'message', with: 'Comment, world!'
-        click_button 'Submit'
-        click_link 'Comment, world!'
-        fill_in 'Message', with: ''
-        click_button 'Edit'
+        submit_post
+        submit_comment
+        submit_empty_comment_edit
         expect(page).to have_content("Comment can't be blank")
       end
 
