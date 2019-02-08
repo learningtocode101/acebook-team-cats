@@ -1,65 +1,83 @@
-<h1>Welcome to Catbook!</h1>
+<div class="container">
 
+<img src="https://catbook-ada.herokuapp.com/assets/catbookheader-642d40e427d108d6ff920f899e0a624a1f1be155792f7b1d014852e8a82c1902.jpg" alt="Catbook Logo" class="logo">
+
+<div class="sign_in">
+<%= form_tag sessions_path do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :sign_in_email, params[:email] %>
+    <%= label_tag :password %>
+    <%= password_field_tag :sign_in_password %>
+  <%= submit_tag "Sign In" %>
+<% end %>
+</div>
+
+
+<h1>Welcome to Catbook!</h1>
+<div class="intro">
+<h3> Welcome to Catbook. The best place to share updates about our furry friends. Sign up for an account below, or sign in. </h3>
+</div>
+
+
+<img src="https://www.metrixlab.com/new/wordpress/wp-content/uploads/2017/08/social_insights_catfood-3-1.png" alt="Catbook Logo" class="cats">
+
+<div class="sign_up">
 <%= form_for @user do |f| %>
-  <%= form_group_for f, :first_name, label: true  do %>
+  First Name:
+  <%= form_group_for f, :first_name, label: false  do %>
     <%= f.text_field :first_name, id: 'first_name', placeholder: 'First Name' %>
-    </div>
   <% end %>
 
-  <%= form_group_for f, :last_name, label: true  do %>
+  Surname:
+  <%= form_group_for f, :last_name, label: false  do %>
     <div>
     <%= f.text_field :last_name, id: 'last_name', placeholder: 'Last Name' %>
     </div>
   <% end %>
 
-  <%= form_group_for f, :email, label: true  do %>
+  Email:
+  <%= form_group_for f, :email, label: false  do %>
     <div>
     <%= f.text_field :email, id: 'email', placeholder: 'Email' %>
     </div>
   <% end %>
 
-  <%= form_group_for f, :password, label: true  do %>
+  Password:
+  <%= form_group_for f, :password, label: false  do %>
     <div>
     <%= f.text_field :password, id: 'password', placeholder: 'Password' %>
     </div>
   <% end %>
 
-  <%= form_group_for f, :birthday, label: true  do %>
+  Birthday:
+  <%= form_group_for f, :birthday, label: false  do %>
     <div>
     <%= f.date_field :birthday, id: 'birthday'  %>
     </div>
   <% end %>
 
-  <%= form_group_for f, :gender, label: true  do %>
+  Gender:
+  <%= form_group_for f, :gender, label: false  do %>
     <div>
     <%= f.text_field :gender, id: 'gender', placeholder: 'Gender' %>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.submit "Sign Up" %><br />
+    <%= f.submit "Sign Up", id: "sign_up" %><br />
   </div>
 
 <% end %>
 
+</div>
+
+
 <br>
 
-<div> 
+<div class="notice"> 
   <%= notice %>
 </div>
 
 <br>
 
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    
-    <%= text_field_tag :sign_in_email, params[:email] %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :sign_in_password %>
-  </div>
-  <div class="actions"><%= submit_tag "Sign In" %></div>
-<% end %>
-
+</div>

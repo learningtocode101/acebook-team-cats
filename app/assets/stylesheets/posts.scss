@@ -1,12 +1,9 @@
-// Place all the styles related to the comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .container {
   width: 50%;
   margin: 0 auto;
   background-color: white;
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .logo {
@@ -14,7 +11,7 @@
   height: auto;
 }
 
-#message {
+#post_message {
   border: 1px solid darkblue;
   border-radius: 4px;
   outline: none;
@@ -45,7 +42,16 @@
   padding-left: 1rem
 }
 
-#delete {
+.form > input {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 162px;
+  padding: 5px;
+  margin-top: 0.5rem;
+}
+
+.delete > a  {
   background-color:#cc0000;
   border:1px solid #660000;
   border-radius:5px;
@@ -54,13 +60,5 @@
   padding:10px 10px 10px 10px;
   text-decoration: none;
   font-size: small;
+  margin-left: 1rem;
  }
-
- .form > input {
-  border: 1px solid darkblue;
-  border-radius: 4px;
-  outline: none;
-  width: 162px;
-  padding: 5px;
-  margin-top: 0.5rem;
-}
