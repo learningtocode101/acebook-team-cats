@@ -24,15 +24,15 @@ a {
   text-decoration: none;
 }
 
-.header{
-  // margin: 0 auto;
-  // width: 50%;
-  }
+// .header{
+//   // margin: 0 auto;
+//   // width: 50%;
+//   }
 
 .new_post_btn {
   position: absolute;
-  top: 80px;
-  left: 480px;
+  top: 120px;
+  left: 495px;
   position: absolute;
   border: .5px solid rgb(255, 255, 255);
   padding: .5em;
@@ -49,7 +49,7 @@ a {
 .sign_out_btn {
   position: absolute;
   top: 40px;
-  right: 500px;
+  right: 505px;
   border: .5px solid rgb(255, 255, 255);
   padding: .5em;
   border-radius: 5px;
@@ -63,9 +63,10 @@ a {
 }
 
 .post_div {
-  height: 100px;
   margin: 0 auto;
-  width: 50%;
+  // width: 50%;
+  text-align: justify;
+  padding: 0 25px 0 20px;
 }
 
 .new_post_notice{
@@ -80,7 +81,7 @@ a {
   // border: 1px solid pink;
   font-size: .8em;
   padding-left: 5px;
-  margin-left: 700px;
+  // margin-left: 700px;
 }
 
 .comment_div{
@@ -91,6 +92,7 @@ a {
   border-radius: 50px;
   padding: 1em;
   margin-top: .4em;
+
 }
 
 .comment_div > p{
