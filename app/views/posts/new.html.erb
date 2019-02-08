@@ -6,9 +6,11 @@
   <%= notice %>
 </div>
 
+<div class="form">
 <%= form_for @post do |form| %>
   <%= form.label :message %></br>
   <%= form.text_area :message %></br>
   <%= form.submit "Submit", id: "submit" %></br>
 <% end %>
+</div>
 </div>
