@@ -1,48 +1,62 @@
-<div>
-  <%= notice %>
-</div>
+  <div class="header">
+    <h1>Welcome back </h1>
+  </div>
+    <div class="new_post_notice">
+      <%= notice %>
+    </div>
+  
+    <% sorted = @posts.sort_by { |k| k["created_at"] } %>
 
-<h1>Welcome</h1>
-
-<% sorted = @posts.sort_by { |k| k["created_at"] } %>
-
-<% sorted.reverse.each do |post| %>
-
-  <% if request.original_url.split("/").pop == post.wall_id %>
-    <% if @current_user.id == post.user_id %>
-
-      <p><%= link_to edit_post_path(post.id) do %>
-        <%= simple_format(post.message) %>
+    <% sorted.reverse.each do |post| %>
+    
+      <% if request.original_url.split("/").pop == post.wall_id %>
+        <% if @current_user.id == post.user_id %>
+        <div id="post_container">
+          <div class="post_div">
+            <p><%= link_to edit_post_path(post.id) do %>
+              <%= simple_format(post.message) %>
+              <% end %>
+              <div id="posted_at">
+                <p> posted at: <%= post.created_at %></p>
+              </div>
+            </p>
+            <% else %>
+              <p> <%= simple_format(post.message) %> </p>
+              <p> posted at: <%= post.created_at %></p>
+            <% end  %>
+          </div>
+          </div>
+              <%= form_for [post, post.comments.build] do |f| %>
+          <div class="create_comment">
+            <%= f.text_field :message, id: 'message', placeholder: 'Write a comment' %>
+            <%= f.submit "Submit" %>
+          </div>
         <% end %>
-        <p> posted at: <%= post.created_at %></p>
-      </p>
-      <% else %>
-        <p> <%= simple_format(post.message) %> </p>
-        <p> posted at: <%= post.created_at %></p>
-      <% end  %>
-          <%= form_for [post, post.comments.build] do |f| %>
-      <div>
-        <%= f.text_field :message, id: 'message', placeholder: 'Comment' %>
-        <%= f.submit "Submit" %>
-      </div>
-    <% end %>
-    <% @comments.each do |comment| %>
-      <% if post.id == comment.post_id %>
-        <%if @current_user.id == comment.user_id %>
-        <p><%= link_to edit_post_comment_path(post.id, comment.id) do %>
-             <%= comment.message %>
-           <% end %>
-           </p>
-        <% else %>
-          <%= comment.message %></br>
+     
+      <div class="comment_div"> 
+        <% @comments.each do |comment| %>
+       
+          <% if post.id == comment.post_id %>
+            
+            <%if @current_user.id == comment.user_id %>
+            <p><%= link_to edit_post_comment_path(post.id, comment.id) do %>
+                <%= comment.message %>
+              <% end %>
+              </p>
+            <% else %>
+              <%= comment.message %></br>
+            <% end %>
+          <% end %>
         <% end %>
+         </div>
       <% end %>
+     
     <% end %>
-  <% end %>
-<% end %>
-
-  <%= link_to new_post_path do %>
-    New post
-  <% end %>
-
-  <%= link_to "Sign Out", session_path("current"), method: "delete" %>
+    <div class="new_post_btn">
+      <%= link_to new_post_path do %>
+        New post
+      <% end %>
+    </div>
+    <div class="sign_out_btn">
+      <%= link_to "Sign Out", session_path("current"), method: "delete" %>
+     </div> 

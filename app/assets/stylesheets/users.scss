@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 * {
   font-family: Arial, Helvetica, sans-serif;
   
@@ -18,6 +17,98 @@ body {
   margin: 0 auto;
   background-color: white;
   padding: 1rem;
+}
+
+a {
+  color: #365899;
+  text-decoration: none;
+}
+
+.header{
+  margin: 0 auto;
+  width: 50%;
+  }
+
+.new_post_btn {
+  position: absolute;
+  top: 65px;
+  left: 460px;
+  position: absolute;
+  border: .5px solid rgb(255, 255, 255);
+  padding: .5em;
+  border-radius: 5px;
+  background-color:lightgreen;
+  text-transform: uppercase;
+  box-shadow: green 3px 3px;
+}
+
+.new_post_btn:hover{
+  background-color:white;
+}
+
+.sign_out_btn {
+  position: absolute;
+  top: 5px;
+  right: 450px;
+  border: .5px solid rgb(255, 255, 255);
+  padding: .5em;
+  border-radius: 5px;
+  background-color:white;
+  text-transform: uppercase;
+  box-shadow: #365899 3px 3px;
+}
+
+.sign_out_btn:hover {
+  background-color:rgb(230, 255, 247);
+}
+
+.post_div {
+  height: 100px;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.new_post_notice{
+  margin: 20px 0 20px 0;
+  height: 50px;
+  margin-left: 40%;
+  color: red;
+  width: 50%;
+}
+
+#posted_at{
+  // border: 1px solid pink;
+  font-size: .8em;
+  padding-left: 5px;
+  margin-left: 700px;
+}
+
+.comment_div{
+  margin: 0 auto;
+  width: 50%;
+  background-color: #f5f4f4; 
+  font-size: 14px;
+  border-radius: 50px;
+  padding: 1em;
+  margin-top: .4em;
+}
+
+.comment_div > p{
+  border-bottom: 1px solid white;
+  padding: 1px;
+}
+
+.create_comment {
+  // border: 1px solid palegreen;
+  margin: 0 auto;
+  width: 50%; 
+}
+
+.create_comment > input#message{
+  margin-top: 5px;
+  border-radius: 10px;
+  height: 30px;
+  width: 500px;
 }
 
 .sign_in {
@@ -133,3 +224,4 @@ body {
   top: 92px;
   color: red;
 }
+  
