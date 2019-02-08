@@ -24,15 +24,14 @@ a {
   text-decoration: none;
 }
 
-.header{
-  margin: 0 auto;
-  width: 50%;
-  }
+a:hover {
+  text-decoration: underline;
+}
 
 .new_post_btn {
   position: absolute;
-  top: 65px;
-  left: 460px;
+  top: 120px;
+  left: 495px;
   position: absolute;
   border: .5px solid rgb(255, 255, 255);
   padding: .5em;
@@ -48,8 +47,8 @@ a {
 
 .sign_out_btn {
   position: absolute;
-  top: 5px;
-  right: 450px;
+  top: 40px;
+  right: 505px;
   border: .5px solid rgb(255, 255, 255);
   padding: .5em;
   border-radius: 5px;
@@ -59,13 +58,18 @@ a {
 }
 
 .sign_out_btn:hover {
-  background-color:rgb(230, 255, 247);
+  background-color:lightblue;
 }
 
 .post_div {
-  height: 100px;
   margin: 0 auto;
-  width: 50%;
+  text-align: justify;
+  padding: 0 25px 0 20px;
+}
+
+.post_div > p {
+  color: grey;
+  line-height: 22px;
 }
 
 .new_post_notice{
@@ -76,32 +80,34 @@ a {
   width: 50%;
 }
 
-#posted_at{
-  // border: 1px solid pink;
+.posted_at{
   font-size: .8em;
   padding-left: 5px;
-  margin-left: 700px;
 }
 
 .comment_div{
-  margin: 0 auto;
-  width: 50%;
   background-color: #f5f4f4; 
   font-size: 14px;
   border-radius: 50px;
   padding: 1em;
-  margin-top: .4em;
+  margin-top: 1em;
+  margin-left: 1.4em;
+  margin-right: 45%;
 }
 
 .comment_div > p{
-  border-bottom: 1px solid white;
-  padding: 1px;
+  border-bottom: 3px solid darkgrey;
+  text-align: justify;
+}
+
+#uneditable_comment {
+  border-bottom: 3px solid grey;
+  padding: 1em;
+ 
 }
 
 .create_comment {
-  // border: 1px solid palegreen;
-  margin: 0 auto;
-  width: 50%; 
+  margin-left: 25px;
 }
 
 .create_comment > input#message{
