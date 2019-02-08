@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+body {
+  background-color: lightblue;
+  margin: 0;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 1rem;
+}
 
 a {
   color: #365899;
@@ -91,4 +107,118 @@ a {
   border-radius: 10px;
   height: 30px;
   width: 500px;
+
+.sign_in {
+  float: right;
+  padding-top: 1.5rem;
 }
+
+.sign_up {
+  padding-left: 5rem
+}
+
+.intro {
+  padding-top:0rem;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+#first_name {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
+  padding: 5px;
+  margin-top: 0.5rem;
+}
+
+#last_name {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
+  padding: 5px;
+  margin-top: 0.5rem;
+}
+
+#email {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
+  padding: 5px;
+  margin-top: 0.5rem;
+}
+
+#password {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
+  padding: 5px;
+  margin-top: 0.5rem;
+}
+
+#birthday {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
+  padding: 5px;
+  margin-top: 0.5rem;
+}
+
+#gender {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 150px;
+  padding: 5px;
+  margin-top: 0.5rem;
+}
+
+#sign_up {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 300px;
+  height: 50px;
+  padding: 5px;
+  margin-left: -4rem;
+  margin-top: 0.5rem;
+  background-color: lightgray;
+  font-size: medium; 
+}
+
+#sign_up:hover {
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  outline: none;
+  width: 300px;
+  height: 50px;
+  padding: 5px;
+  margin-top: 0.5rem;
+  background-color: white;
+  font-size: medium; 
+}
+
+.field {
+  text-align: center;
+}
+
+.cats {
+  float: right;
+  padding: 5rem;
+  width: 300px;
+  height: auto;
+}
+
+.notice {
+  position: absolute;
+  top: 92px;
+  color: red;
+}
+  

@@ -47,6 +47,7 @@ Metrics/LineLength:
     - 'spec/**/*'
     - 'test/**/*'
     - 'db/schema.rb'
+    - 'app/models/user.rb'
 
 Metrics/BlockLength:
   Exclude:
