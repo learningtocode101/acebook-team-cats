@@ -1,10 +1,11 @@
+<div class ="container">
   <div class="header">
     <h1>Welcome back </h1>
   </div>
     <div class="new_post_notice">
       <%= notice %>
     </div>
-  
+
     <% sorted = @posts.sort_by { |k| k["created_at"] } %>
 
     <% sorted.reverse.each do |post| %>
@@ -60,3 +61,5 @@
     <div class="sign_out_btn">
       <%= link_to "Sign Out", session_path("current"), method: "delete" %>
      </div> 
+
+</div>
