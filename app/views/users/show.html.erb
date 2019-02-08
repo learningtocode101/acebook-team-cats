@@ -1,65 +1,77 @@
-<div class ="container">
+<div class="container">
   <div class="header">
     <img src="https://catbook-ada.herokuapp.com/assets/catbookheader-642d40e427d108d6ff920f899e0a624a1f1be155792f7b1d014852e8a82c1902.jpg" alt="Catbook Logo" class="logo">
   </div>
-    <div class="new_post_notice">
-      <%= notice %>
-    </div>
+  <div class="new_post_notice">
+    <%= notice %>
+  </div>
 
-    <% sorted = @posts.sort_by { |k| k["created_at"] } %>
+  <% sorted = @posts.sort_by { |k| k["created_at"] } %>
 
     <% sorted.reverse.each do |post| %>
-    
+
       <% if request.original_url.split("/").pop == post.wall_id %>
-        <% if @current_user.id == post.user_id %>
-        <div id="post_container">
-          <div class="post_div">
-            <p><%= link_to edit_post_path(post.id) do %>
-              <%= simple_format(post.message) %>
-              <% end %>
-              <div id="posted_at">
-                <p> posted at: <%= post.created_at %></p>
-              </div>
+        <div class="post_div">
+          <% if @current_user.id == post.user_id %>
+
+            <p>
+              <%= link_to edit_post_path(post.id) do %>
+                <%= simple_format(post.message) %>
+                  <% end %>
+                    <div class="posted_at">
+                      <p> posted at:
+                        <%= post.created_at %>
+                      </p>
+                    </div>
             </p>
             <% else %>
-              <p> <%= simple_format(post.message) %> </p>
-              <p> posted at: <%= post.created_at %></p>
-            <% end  %>
-          </div>
-          </div>
-              <%= form_for [post, post.comments.build] do |f| %>
+              <p>
+                <%= simple_format(post.message) %>
+              </p>
+              <div class="posted_at">
+                <p> posted at:
+                  <%= post.created_at %>
+                </p>
+              </div>
+              <% end  %>
+        </div>
+
+        <%= form_for [post, post.comments.build] do |f| %>
           <div class="create_comment">
             <%= f.text_field :message, id: 'message', placeholder: 'Write a comment' %>
-            <%= f.submit "Submit" %>
+              <%= f.submit "Submit" %>
           </div>
-        <% end %>
-     
-      <div class="comment_div"> 
-        <% @comments.each do |comment| %>
-       
-          <% if post.id == comment.post_id %>
-            
-            <%if @current_user.id == comment.user_id %>
-            <p><%= link_to edit_post_comment_path(post.id, comment.id) do %>
-                <%= comment.message %>
-              <% end %>
-              </p>
-            <% else %>
-              <%= comment.message %></br>
-            <% end %>
           <% end %>
-        <% end %>
-         </div>
-      <% end %>
-     
-    <% end %>
-    <div class="new_post_btn">
-      <%= link_to new_post_path do %>
-        New post
-      <% end %>
-    </div>
-    <div class="sign_out_btn">
-      <%= link_to "Sign Out", session_path("current"), method: "delete" %>
-     </div> 
+
+            <div class="comment_div">
+              <% @comments.each do |comment| %>
+
+                <% if post.id == comment.post_id %>
+
+                  <%if @current_user.id == comment.user_id %>
+                    <p>
+                      <%= link_to edit_post_comment_path(post.id, comment.id) do %>
+                        <%= comment.message %>
+                          <% end %>
+                    </p>
+                    <% else %>
+                      <div id="uneditable_comment">
+                        <%= comment.message %>
+                      </div>
+                      <% end %>
+                        <% end %>
+                          <% end %>
+            </div>
+            <% end %>
+
+              <% end %>
+                <div class="new_post_btn">
+                  <%= link_to new_post_path do %>
+                    New post
+                    <% end %>
+                </div>
+                <div class="sign_out_btn">
+                  <%= link_to "Sign Out", session_path("current"), method: "delete" %>
+                </div>
 
 </div>

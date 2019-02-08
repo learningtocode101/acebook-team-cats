@@ -24,10 +24,9 @@ a {
   text-decoration: none;
 }
 
-// .header{
-//   // margin: 0 auto;
-//   // width: 50%;
-//   }
+a:hover {
+  text-decoration: underline;
+}
 
 .new_post_btn {
   position: absolute;
@@ -64,13 +63,13 @@ a {
 
 .post_div {
   margin: 0 auto;
-  // width: 50%;
   text-align: justify;
   padding: 0 25px 0 20px;
 }
 
 .post_div > p {
   color: grey;
+  line-height: 22px;
 }
 
 .new_post_notice{
@@ -81,16 +80,12 @@ a {
   width: 50%;
 }
 
-#posted_at{
-  // border: 1px solid pink;
+.posted_at{
   font-size: .8em;
   padding-left: 5px;
-  // margin-left: 700px;
 }
 
 .comment_div{
-  // margin: 0 auto;
-  // width: 50%;
   background-color: #f5f4f4; 
   font-size: 14px;
   border-radius: 50px;
@@ -102,15 +97,17 @@ a {
 
 .comment_div > p{
   border-bottom: 3px solid darkgrey;
-  padding: 1px;
   text-align: justify;
 }
 
+#uneditable_comment {
+  border-bottom: 3px solid grey;
+  padding: 1em;
+ 
+}
+
 .create_comment {
-  // border: 1px solid palegreen;
-  // margin: 0 auto;
   margin-left: 25px;
-  // width: 50%; 
 }
 
 .create_comment > input#message{
