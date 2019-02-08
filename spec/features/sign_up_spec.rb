@@ -1,7 +1,7 @@
 RSpec.feature 'Signup', type: :feature do
   context 'Successful signup' do
     scenario 'User provides valid details for all fields' do
-      sign_up 
+      sign_up
       expect(page.current_path).to eq("/users/davethecat@katze.com")
     end
   end
@@ -12,7 +12,7 @@ RSpec.feature 'Signup', type: :feature do
       click_link 'Sign Out'
       sign_up
       expect(page.current_path).to eq('/users')
-      expect(page).to have_content('has already been taken')
+      expect(page).to have_content("Meow, email must be unique.")
     end
 
     scenario 'User attempts signup with email missing @' do
@@ -20,7 +20,7 @@ RSpec.feature 'Signup', type: :feature do
       fill_in :email, with: 'davethecat1atkatze.com'
       click_button 'Sign Up'
       expect(page.current_path).to eq('/users')
-      expect(page).to have_content('is invalid')
+      expect(page).to have_content("Meow, email must include @.")
     end
 
     scenario 'User cannot choose password shorter than 6 characters' do
@@ -45,7 +45,7 @@ RSpec.feature 'Signup', type: :feature do
       fill_in :first_name, with: ''
       click_button 'Sign Up'
       expect(page.current_path).to eq('/users')
-      expect(page).to have_content("can't be blank")
+      expect(page).to have_content("Meow, what is your a first name?")
     end
 
     scenario 'User cannot leave last_name field empty' do
@@ -53,7 +53,7 @@ RSpec.feature 'Signup', type: :feature do
       fill_in :last_name, with: ''
       click_button 'Sign Up'
       expect(page.current_path).to eq('/users')
-      expect(page).to have_content("can't be blank")
+      expect(page).to have_content("Meow, what is your last name?")
     end
 
     scenario 'User cannot leave email field empty' do
@@ -61,7 +61,7 @@ RSpec.feature 'Signup', type: :feature do
       fill_in :email, with: ''
       click_button 'Sign Up'
       expect(page.current_path).to eq('/users')
-      expect(page).to have_content("can't be blank")
+      expect(page).to have_content("Meow, what is your email?")
     end
 
     scenario 'User cannot leave birthday field empty' do
@@ -69,7 +69,7 @@ RSpec.feature 'Signup', type: :feature do
       fill_in :birthday, with: ''
       click_button 'Sign Up'
       expect(page.current_path).to eq('/users')
-      expect(page).to have_content("can't be blank")
+      expect(page).to have_content("Meow, when is your birthday?")
     end
 
     scenario 'User cannot leave password field empty' do
@@ -85,7 +85,7 @@ RSpec.feature 'Signup', type: :feature do
       fill_in :gender, with: ''
       click_button 'Sign Up'
       expect(page.current_path).to eq('/users')
-      expect(page).to have_content("can't be blank")
+      expect(page).to have_content("Meow, what is your gender?")
     end
   end
 end
