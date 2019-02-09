@@ -1,11 +1,7 @@
 <% sorted = @posts.sort_by { |k| k["created_at"] } %>
 <% sorted.reverse.each do |post| %>
   <% @post = post %>
-  <% if @current_user.id == post.user_id %>
-      <%= render 'posts/link' %>
-    <% else %>
-      <%= render 'posts/non_link' %>
-    <% end  %>
+  <%= render 'posts/message' %>
     <p> posted at: <%= post.created_at %></p>
     <%= form_for [post, post.comments.build] do |f| %>
       <div>
