@@ -2,7 +2,7 @@
 <% sorted.reverse.each do |post| %>
   <% @post = post %>
   <%= render 'posts/message' %>
-    <p> posted at: <%= post.created_at %></p>
+  <%= render 'posts/timestamp' %>
     <%= form_for [post, post.comments.build] do |f| %>
       <div>
         <%= f.text_field :message, id: 'message', placeholder: 'Comment' %>
