@@ -10,8 +10,9 @@
       </div>
     <% end %>
     <% @comments.each do |comment| %>
+      <% @comment = comment %>
       <% if post.id == comment.post_id %>
-        <%= comment.message %></br>
+        <%= render 'comments/non_link' %>
         <% end %>
       <% end %>
   <% end %>
