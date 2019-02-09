@@ -6,8 +6,6 @@
   <%= render 'comments/form' %>
     <% @comments.each do |comment| %>
       <% @comment = comment %>
-      <% if post.id == comment.post_id %>
-        <%= render 'comments/non_link' %>
-        <% end %>
+      <%= render 'comments/match_comment_to_post' %>
       <% end %>
   <% end %>
