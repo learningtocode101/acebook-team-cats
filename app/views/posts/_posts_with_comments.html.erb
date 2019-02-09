@@ -4,8 +4,5 @@
   <%= render 'posts/message' %>
   <%= render 'posts/timestamp' %>
   <%= render 'comments/form' %>
-    <% @comments.each do |comment| %>
-      <% @comment = comment %>
-      <%= render 'comments/match_comment_to_post' %>
-      <% end %>
-  <% end %>
+  <%= render 'comments/message' %>
+<% end %>

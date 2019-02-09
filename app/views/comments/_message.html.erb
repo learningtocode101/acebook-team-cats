@@ -1,0 +1,6 @@
+<div class>
+<% @comments.each do |comment| %>
+  <% @comment = comment %>
+    <%= render 'comments/match_comment_to_post' %>
+<% end %>
+</div>
