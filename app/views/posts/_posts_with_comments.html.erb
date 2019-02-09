@@ -3,12 +3,7 @@
   <% @post = post %>
   <%= render 'posts/message' %>
   <%= render 'posts/timestamp' %>
-    <%= form_for [post, post.comments.build] do |f| %>
-      <div>
-        <%= f.text_field :message, id: 'message', placeholder: 'Comment' %>
-        <%= f.submit "Submit" %>
-      </div>
-    <% end %>
+  <%= render 'comments/form' %>
     <% @comments.each do |comment| %>
       <% @comment = comment %>
       <% if post.id == comment.post_id %>

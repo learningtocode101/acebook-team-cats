@@ -1,0 +1,6 @@
+    <%= form_for [@post, @post.comments.build] do |f| %>
+      <div>
+        <%= f.text_field :message, id: 'message', placeholder: 'Comment' %>
+        <%= f.submit "Submit" %>
+      </div>
+    <% end %>
