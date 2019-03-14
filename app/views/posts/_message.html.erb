@@ -1,0 +1,5 @@
+  <% if @current_user.id == @post.user_id %>
+      <%= render 'posts/link' %>
+    <% else %>
+      <%= render 'posts/non_link' %>
+    <% end  %>

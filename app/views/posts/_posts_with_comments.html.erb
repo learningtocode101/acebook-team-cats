@@ -1,0 +1,8 @@
+<% sorted = @posts.sort_by { |k| k["created_at"] } %>
+<% sorted.reverse.each do |post| %>
+  <% @post = post %>
+  <%= render 'posts/message' %>
+  <%= render 'posts/timestamp' %>
+  <%= render 'comments/form' %>
+  <%= render 'comments/message' %>
+<% end %>

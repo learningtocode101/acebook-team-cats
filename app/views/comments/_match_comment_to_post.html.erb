@@ -1,0 +1,7 @@
+<% if @post.id == @comment.post_id %>
+   <% if @current_user.id == @comment.user_id %>
+     <%= render 'comments/link' %>
+   <% else %>
+     <%= render 'comments/non_link' %>
+   <% end %>
+ <% end %>
